@@ -60,3 +60,31 @@ vector<pair<int,int>> getSkyline(vector<vector<int>> buildings){
 	return res;
 }
 }
+
+int main(int argc, char *argv[]){
+	vector<vector<int>> buildings;
+	int x[] = {0,2147483647,2147483647};
+	//int x[] = {2, 9,10 3, 7, 15, 5, 12, 12, 15, 20, 10, 19, 24, 8}; 
+	//int x[] = {0,2,3,2,5,3};
+	int len = sizeof(x)/sizeof(x[0]);
+	//vector<int> num = getVector(x,len);
+	int count = 0;
+	int i=0;
+	vector<int> each;
+	while(i<len){
+		if(count == 3){
+			buildings.push_back(each);
+			count = 0;
+			each.clear();
+		}
+		else{
+			each.push_back(x[i++]);
+			count ++;
+		}
+	}
+	buildings.push_back(each);
+	//print(buildings);
+
+	cout<<endl;
+	vector<pair<int,int>> res = getSkyline(buildings);
+	print(res);
