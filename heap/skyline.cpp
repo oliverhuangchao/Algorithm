@@ -88,3 +88,4 @@ int main(int argc, char *argv[]){
 	cout<<endl;
 	vector<pair<int,int>> res = getSkyline(buildings);
 	print(res);
+}
