@@ -1,6 +1,6 @@
 //decare tree construction
 // it has many application using find the kth element
-
+//
 TreeNode* maxTree(vector<int> A) {
     if(A.empty()) return NULL;
     stack<TreeNode*> mystack;

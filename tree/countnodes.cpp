@@ -1,3 +1,4 @@
+// count the total number of nodes in a complete bst
 int getHeight(TreeNode* root){
     if(!root) return 0;
     return getHeight(root->left)+1;
