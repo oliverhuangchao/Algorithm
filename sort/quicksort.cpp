@@ -1,11 +1,12 @@
 // quick sort procedure
 // two pointers solution 
-// pivot could be the mid element
+// pivot could be the first element
+// move the pivot frequently
 int partition(vector<int> &nums,int start,int end){
     int pivot = nums[start];
     
     while(start < end){
-        while(start < end && nums[end] >= pivot){
+        while(start < end && nums[end] >= pivot){//pay attention: >= control the sort order
             end --;
         }
         nums[start] = nums[end];
