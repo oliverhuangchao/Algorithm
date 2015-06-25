@@ -2,6 +2,17 @@
 // example:
 // input: hello world chaoh
 // output: chaoh world hello
+void reverseword(string &x,int a,int b){
+	char tmp;
+	while(a<b){
+		tmp = x[a];
+		x[a] = x[b];
+		x[b] = tmp;
+		a++;
+		b--;
+	}
+	return;
+}
 int main(){
 	//string x;
 	char a[128];
