@@ -4,8 +4,7 @@ From a given integer array values, find if a Total value is possible or not? The
 example 
 int[] points = {3, 7}; 
 isScorePossible(points, 10) => true 
-isScorePossible(points, 9) => true
-
+isScorePossible(points, 9) => trues
 */ 
 bool dfs(const vector<int> &nums,const int target, int current,int pos, vector<int> &q){
 	//if(pos == nums.size()) return false;
@@ -30,21 +29,31 @@ bool dfs(const vector<int> &nums,const int target, int current,int pos, vector<i
 
 }
 int main(){
-	int x[] = {3,7};
-	int size = sizeof(x)/sizeof(x[0]);
-	vector<int> nums = getVector(x,size);
+	int a[] = {3,7};
+	int size = sizeof(a)/sizeof(a[0]);
+	vector<int> nums = getVector(a,size);
 	int value;
 	cin>>value;
-	/*for(int i=0;i<size;i++){
-		int tmp;
-		cin>>tmp;
-		nums.push_back(tmp);
-	}
-	print(nums);*/
-	sort(nums.begin(),nums.end(),greater<int>());
+
+
+	/* dfs solution */
+	/*sort(nums.begin(),nums.end(),greater<int>());
 	print(nums);
 	int current = 0;
 	vector<int> q;
 	cout<<dfs(nums,value,current,0,q);
-	cout<<endl;
+	cout<<endl;*/
+
+	/* dp solution */
+
+	bool x[value+1];
+	fill_n(&x[0],value+1,false);
+	x[0] = true;
+	for(int i=0;i<size;i++){
+		for(int j=nums[i];j<=value;j++)
+			x[j] = x[j-nums[i]] || x[j]; 
+	}
+	print(x[value]);
+	return 0;	
+
 }
