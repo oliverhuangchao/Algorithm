@@ -1,17 +1,43 @@
-nums = [-7, 1, 5, 2, -4, 3, 0]
-left = list()
-left.append(nums[0])
-for i in range(1,len(nums)):
-	left.append(left[i-1]+nums[i])
-#left = map(lambda x:left[len(left)-1]+x,nums)
-right = list()
-right.append(nums[len(nums)-1])
-for i in range(1,len(nums)):
-	right.append(right[i-1]+nums[len(nums)-i-1])
-right.reverse()
-print left
-print right
 
-# return left + right
-res = list(map(lambda x: x[0]-x[1],zip(left,right)))
-print res.index(0)
+def check(num,pre):
+    if pre == []:
+        return False
+    z = dict()
+    degree = list()
+    for i in range(0,num):
+        degree.append(0)
+        z[i] = list()
+
+    for i in pre:
+        z[i[0]].append(i[1])
+        degree[i[1]] += 1
+
+    #print z
+
+    for i in range(0,num):
+        k = 0
+        while k<num:
+            if degree[k] == 0:
+                break;
+            k += 1
+        #print k
+        if k == num: 
+            return False  
+        #if degree[k] == 0:
+        degree[k] = -1
+        for it in z[k]:
+            degree[it] -= 1
+
+        print degree
+
+    return True
+
+
+
+if __name__ == "__main__":
+    num = 2
+    pre = list()
+    #pre.append([1,0])
+    pre.append([0,1])
+    print pre
+    print check(num,pre)
