@@ -4,7 +4,6 @@
 //each time input a number and compare to the heap.top
 //if the current number is bigger than delete the top value and push this number into the heap and update the heap
 int findKthLargest(vector<int>& nums, int k){
-    //if(nums.empty()) return 
     priority_queue<int,vector<int>,greater<int>> q;//最小堆，k个数里面最小的值凡在最顶端
     int count = 0;
     int i=0;
@@ -19,3 +18,5 @@ int findKthLargest(vector<int>& nums, int k){
     }
     return q.top();
 }
+
+// or we can use binary search to finish this procedure
