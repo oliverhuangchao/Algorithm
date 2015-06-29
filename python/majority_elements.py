@@ -18,10 +18,8 @@ def majorityNumber(nums):
 
 def majority_TwoNumber(nums):
     ctr = collections.Counter()
-    print ctr
     for n in nums:
         ctr[n] += 1
-        #print ctr
         if len(ctr) == 3:
             ctr -= collections.Counter(set(ctr))
     res = [n for n in ctr if nums.count(n) > len(nums)/3]

@@ -13,10 +13,8 @@ int main(){
 		int key,value;
 		cin>>key>>value;
 		if(m.find(key) != m.end())
-			res += m[key]*value; 
+			res += m[key]*value;
 	}
 	cout<<res;
 	return 0;
 }
-
- 

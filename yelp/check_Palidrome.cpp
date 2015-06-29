@@ -1,7 +1,6 @@
-#include "basic.h"
+ #include "basic.h"
 int main(){
 	string x;
-	
 	while(1){
 		cin>>x;
 		if(x == "q")
@@ -16,7 +15,7 @@ int main(){
 		}
 		for(auto each : m){
 			if(each.second % 2 == 1)
-				++check;  
+				++check;
 		}
 		if(check < 2) cout<<"true";
 		else cout<<"false";
@@ -25,5 +24,3 @@ int main(){
 
 	return 0;
 }
-
- 

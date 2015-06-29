@@ -2,6 +2,7 @@
 // example:
 // input: hello world chaoh
 // output: chaoh world hello
+#include "basic.h"
 void reverseword(string &x,int a,int b){
 	char tmp;
 	while(a<b){
