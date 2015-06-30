@@ -1,5 +1,6 @@
 // return the longetst substr without repeated chars
 //
+#include "basic.h"
 int lengthOfLongestSubstring(string str) {
     // write your code here
     // O(n) solution with hashtable
@@ -15,11 +16,12 @@ int lengthOfLongestSubstring(string str) {
         else{
             m.insert({str[i],i});
         }
-        /*if(len < i-start+1){
-            len = i-start+1;
-            begin = start;
-        }*/
         len = max(len,i-start+1);
     }
     return len;
+}
+int main(){
+	string str = "abcabcbb";
+	print(lengthOfLongestSubstring(str));
+	return 0;
 }
