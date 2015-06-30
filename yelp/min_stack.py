@@ -1,6 +1,7 @@
 import sys
 class min_stack:
 	def __init__(self):
+		#self.minvalue = -1*sys.maxint-1
 		self.data = list()
 		self.min_data = list()
 
@@ -21,8 +22,7 @@ class min_stack:
 
 
 
-x = min_stack()
+min_stack x()
 x.push(1)
 x.pop()
 x.push(2)
-print x.getmin()
