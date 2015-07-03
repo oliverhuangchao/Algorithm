@@ -1,4 +1,5 @@
 # world ladder II
+import collections
 
 def findLadders(start, end, dic):
     dic.add(end)
@@ -18,3 +19,5 @@ def findLadders(start, end, dic):
     while res and res[0][0] != start:
         res = [[p]+r for r in res for p in parents[r[0]]]   
     return res
+
+
