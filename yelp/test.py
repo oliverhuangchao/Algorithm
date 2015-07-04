@@ -1,23 +1,38 @@
-# world ladder II
-import collections
+# thread practice
+import heapq
 
-def findLadders(start, end, dic):
-    dic.add(end)
-    level = {start}
-    parents = collections.defaultdict(set)
-    while level and end not in parents:
-        next_level = collections.defaultdict(set)
-        for node in level:
-            for char in string.ascii_lowercase:
-                for i in range(len(start)):
-                    n = node[:i]+char+node[i+1:]
-                    if n in dic and n not in parents:
-                        next_level[n].add(node)
-        level = next_level
-        parents.update(next_level)
-    res = [[end]]
-    while res and res[0][0] != start:
-        res = [[p]+r for r in res for p in parents[r[0]]]   
-    return res
+########## first part ############
+# default heapq to build a min-heap
+# x = list()
+# heapq.heappush(x,1)
+# heapq.heappush(x,3)
+# heapq.heappush(x,2)
 
+# print heapq.heappop(x)
+# print heapq.heappop(x)
+# print heapq.heappop(x)
 
+########## second part ############
+# self-define class for min-heap
+x = list()
+class myclass:
+    def __init__(self,x,y):
+        self._first = x
+        self._second = y
+
+    # < means max-heap
+    def __cmp__(self,other):
+        return self._second > other._second
+
+heapq.heappush(x,myclass(1,10))
+heapq.heappush(x,myclass(3,9))
+heapq.heappush(x,myclass(2,8))
+
+print heapq.heappop(x)._second
+print heapq.heappop(x)._second
+print heapq.heappop(x)._second
+
+########### third part ############
+# for normal part of integer
+# if we need to obtain a max_heap
+# the best way for us is 
