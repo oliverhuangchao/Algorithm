@@ -38,11 +38,6 @@ x.put(newclass(6))
 print x.get()._value
 print x.qsize()
 
-
-
-
-
-
 #use Queue module
 #x = q.PriorityQueue()
 # x = mypq()
