@@ -1,48 +1,40 @@
-# achieve two number add with different base
-# N should <= 10, then use str() is ok
-# if N > 10:
-# there should be a new function to achieve, or use hex()
-# suppose len(a) >= len(b)
+# longest common subsequence
+# longest common subsequence
+# how to get the transform equation
 
+def longestCommonSubstring(a, b):
+    # write your code here
+    # pay attention the order of a and b
+    check = [[0 for i in range(len(b)+1)] for j in range(len(a)+1)]
+    res = 0
+    
+    for i in range(1,len(a)+1):
+        for j in range(1,len(b)+1):
+            if a[i-1] == b[j-1]:
+                check[i][j] = check[i-1][j-1] + 1
+            else:
+                check[i][j] = 0
+            
+            res = max(res,check[i][j])
+    
+    return res
 
-def transfer(tmp):
-	if tmp < 10:
-		return str(tmp)
-	else:
-		return list(hex(tmp))[2].upper()
+def longestCommonSubsequence(a, b):
+    # write your code here
+    check = [[0 for i in range(len(b)+1)] for j in range(len(a)+1)]
+    res = 0
+    for i in range(1,len(a)+1):
+        for j in range(1,len(b)+1):
+            if a[i-1] == b[j-1]:
+                check[i][j] = check[i-1][j-1] + 1
+            else:
+                check[i][j] = max(check[i-1][j],check[i][j-1])
+            
+            res = max(check[i][j], res)
+    
+    return res
 
+a = ""
+b = ""
 
-def addTwo(a,b,N):
-	if len(a) < len(b):
-		return addTwo(b,a,N)
-	list_x = list(a)
-	list_x.reverse()
-	list_y = list(b)
-	list_y.reverse()
-	flag = 0
-	res = list()
-	#size = len(list_y)
-	for i in range(len(list_x)):
-		if i < len(list_y):
-			tmp  = int(list_x[i]) + int(list_y[i]) + flag
-		else:
-			tmp = int(list_x[i]) + flag
-		if tmp >= N:
-			flag = 1
-
-		tmp %= N
-		res.append(transfer(tmp))
-
-	if flag == 1:
-		res.append(transfer(flag))
-	res.reverse()
-	res = "".join(res)
-	return res
-
-
-a = "111"
-b = "999"
-N = 16
-print a
-print b
-print addTwo(a,b,N)
+print longestCommonSubstring(a,b)
