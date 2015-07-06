@@ -1,5 +1,6 @@
-# world ladder II
-
+# word ladder II
+import collections
+import string
 def findLadders(start, end, dic):
     dic.add(end)
     level = {start}
@@ -18,3 +19,11 @@ def findLadders(start, end, dic):
     while res and res[0][0] != start:
         res = [[p]+r for r in res for p in parents[r[0]]]   
     return res
+
+
+
+x = ["hot","dot","dog","lot","log"]
+dic = set(x)
+
+print string.ascii_uppercase
+#print findLadders("hit","cog",dic)
